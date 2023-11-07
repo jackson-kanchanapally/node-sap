@@ -18,7 +18,7 @@ app.get("/rbs", (req, res) => {
     } else {
       res.json(rows);
     }
-  });
+  })
 });
 app.post("/rbs", (req, res) => {
   const { name, email } = req.body;
