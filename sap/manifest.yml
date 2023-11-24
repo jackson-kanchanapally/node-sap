@@ -1,0 +1,12 @@
+---
+applications:
+- name: myapp
+  # routes:
+  # - route: myapp-rcelosojd-dfg.cfapps.us10-001.ondemand.com
+  random-route: true
+  instances: 4
+  path: .
+  memory: 64M
+  disk_quota: 512M
+  buildpacks:
+  - nodejs_buildpack
