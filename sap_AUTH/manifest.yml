@@ -19,7 +19,7 @@ applications:
       [
         {
           "name":"myapp",
-          "url":"https://myapp-egregious-turtle-xa.cfapps.ap21.hana.ondemand.com/",
+          "url":"https://myapp-hilarious-hippopotamus-gy.cfapps.ap21.hana.ondemand.com/",
           "forwardAuthToken": true
         }
       ]

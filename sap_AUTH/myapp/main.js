@@ -1,11 +1,22 @@
-const express = require("express");
+const express = require('express');
+const passport = require('passport');
+const xsenv = require('@sap/xsenv');
+const JWTStrategy = require('@sap/xssec').JWTStrategy;
+
 const app = express();
-app.get("/", (req, res) => {
-  res.json({
-    "a":"dsf",
-  })
+
+const services = xsenv.getServices({ uaa:'nodeuaa' });
+
+passport.use(new JWTStrategy(services.uaa));
+
+app.use(passport.initialize());
+app.use(passport.authenticate('JWT', { session: false }));
+
+app.get('/', function (req, res, next) {
+  res.send('Application user: ' + req.user.id);
 });
+
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("server is running");
+app.listen(port, function () {
+  console.log('myapp listening on port ' + port);
 });
